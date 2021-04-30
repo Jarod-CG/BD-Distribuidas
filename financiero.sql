@@ -1,4 +1,4 @@
--- drop database if exists financiero;
+drop database if exists financiero;
 create database financiero charset utf16 collate utf16_spanish2_ci;
 use financiero;
 
@@ -21,3 +21,11 @@ estadoCobro int not null,
 fechaLimite date not null,
 fechaCancelacion date
 );
+
+alter table cobroXestudiante add constraint fk_CobroEstudiante
+foreign key cobroXestudiante(cedula) references matricula.estudiante(cedula) 
+on update cascade on delete cascade;
+
+alter table cobroXestudiante add constraint fk_CobroTipo
+foreign key cobroXestudiante(tipoCobro) references tipocobro(codigo) 
+on update cascade on delete cascade;
