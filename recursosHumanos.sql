@@ -1,9 +1,7 @@
---se instancia para una BD cartago y otra San jose
---en datos dummy se cambia la sede, y el nombre de los profes
 USE [recursosHumanos_SJ_DB]
 GO
 
-/****** Object:  Table [dbo].[Campus]    Script Date: 29/4/2021 20:14:27 ******/
+/****** Object:  Table [dbo].[Campus]    Script Date: 29/4/2021 21:23:30 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -20,7 +18,7 @@ CREATE TABLE [dbo].[Campus](
 ) ON [PRIMARY]
 GO
 
-/****** Object:  Table [dbo].[Escuela]    Script Date: 29/4/2021 20:14:27 ******/
+/****** Object:  Table [dbo].[Escuela]    Script Date: 29/4/2021 21:23:30 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -38,7 +36,7 @@ CREATE TABLE [dbo].[Escuela](
 ) ON [PRIMARY]
 GO
 
-/****** Object:  Table [dbo].[Profesor]    Script Date: 29/4/2021 20:14:27 ******/
+/****** Object:  Table [dbo].[Profesor]    Script Date: 29/4/2021 21:23:30 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -53,6 +51,7 @@ CREATE TABLE [dbo].[Profesor](
 	[fechaNacimiento] [date] NOT NULL,
 	[telefono] [int] NOT NULL,
 	[correo] [nvarchar](50) NOT NULL,
+	[activo] [bit] NOT NULL,
  CONSTRAINT [PK_Profesor] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC

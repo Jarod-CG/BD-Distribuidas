@@ -24,12 +24,13 @@ INSERT INTO dbo.Profesor(
 	apellido,
 	fechaNacimiento,
 	telefono,
-	correo
+	correo,
+	activo
 )
 VALUES
-(	5, 1, 'Cher', 'Cruz', '1980-03-05', 89237812, 'mariaCruz@gmail.com'),
-(	6, 1, 'Loulogio', 'Fonseca', '1972-12-04', 12337812, 'mateoFonseca@gmail.com'),
-(	7, 2, 'Ash', 'Hernandez', '1985-12-12', 54346534, 'roxanaHernandez@gmail.com'),
-(	8, 2, 'Klaus', 'Torres', '1989-10-05', 12436587, 'ludovicoTorres@gmail.com');
+(	5, 1, 'Cher', 'Cruz', '1980-03-05', 89237812, 'mariaCruz@gmail.com', 0),
+(	6, 1, 'Loulogio', 'Fonseca', '1972-12-04', 12337812, 'mateoFonseca@gmail.com', 1),
+(	7, 2, 'Ash', 'Hernandez', '1985-12-12', 54346534, 'roxanaHernandez@gmail.com', 0),
+(	8, 2, 'Klaus', 'Torres', '1989-10-05', 12436587, 'ludovicoTorres@gmail.com', 1);
 
 

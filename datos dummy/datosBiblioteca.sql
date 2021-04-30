@@ -34,11 +34,11 @@ INSERT INTO dbo.Libro(
 	prestado
 )
 VALUES
-(	1, 'Comunidad del Anillo', 0),
-(	2, 'Dos Torres', 0),
+(	1, 'Comunidad del Anillo', 1),
+(	2, 'Dos Torres', 1),
 (	3, 'Retorno del rey', 0),
-(	4, 'Al faro', 0),
-(	5, 'Orlando', 0),
+(	4, 'Al faro', 1),
+(	5, 'Orlando', 1),
 (	6, 'Camino de los reyes', 0),
 (	7, 'Juramentada', 0);
 
