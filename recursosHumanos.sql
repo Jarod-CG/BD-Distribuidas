@@ -1,3 +1,5 @@
+--se instancia para una BD cartago y otra San jose
+--en datos dummy se cambia la sede, y el nombre de los profes
 USE [recursosHumanos_SJ_DB]
 GO
 
