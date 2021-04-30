@@ -1,7 +1,7 @@
 USE [recursosHumanos_SJ_DB]
 GO
 
-/****** Object:  Table [dbo].[Campus]    Script Date: 29/4/2021 18:26:11 ******/
+/****** Object:  Table [dbo].[Campus]    Script Date: 29/4/2021 18:54:00 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -9,7 +9,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[Campus](
-	[id] [int] IDENTITY(1,1) NOT NULL,
+	[id] [int] NOT NULL,
 	[nombre] [nvarchar](50) NOT NULL,
  CONSTRAINT [PK_Campus] PRIMARY KEY CLUSTERED 
 (
@@ -18,7 +18,7 @@ CREATE TABLE [dbo].[Campus](
 ) ON [PRIMARY]
 GO
 
-/****** Object:  Table [dbo].[Escuela]    Script Date: 29/4/2021 18:26:11 ******/
+/****** Object:  Table [dbo].[Escuela]    Script Date: 29/4/2021 18:54:00 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -26,7 +26,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[Escuela](
-	[id] [int] IDENTITY(1,1) NOT NULL,
+	[id] [int] NOT NULL,
 	[nombre] [nvarchar](50) NOT NULL,
  CONSTRAINT [PK_Escuela] PRIMARY KEY CLUSTERED 
 (
@@ -35,7 +35,7 @@ CREATE TABLE [dbo].[Escuela](
 ) ON [PRIMARY]
 GO
 
-/****** Object:  Table [dbo].[Profesor]    Script Date: 29/4/2021 18:26:11 ******/
+/****** Object:  Table [dbo].[Profesor]    Script Date: 29/4/2021 18:54:00 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -43,7 +43,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[Profesor](
-	[id] [int] IDENTITY(1,1) NOT NULL,
+	[id] [int] NOT NULL,
 	[idCampus] [int] NOT NULL,
 	[idEscuela] [int] NOT NULL,
 	[nombre] [nvarchar](50) NOT NULL,

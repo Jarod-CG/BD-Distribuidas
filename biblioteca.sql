@@ -1,7 +1,7 @@
 USE [biblioteca_DB]
 GO
 
-/****** Object:  Table [dbo].[Autor]    Script Date: 29/4/2021 18:27:02 ******/
+/****** Object:  Table [dbo].[Autor]    Script Date: 29/4/2021 18:52:41 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -9,7 +9,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[Autor](
-	[id] [int] IDENTITY(1,1) NOT NULL,
+	[id] [int] NOT NULL,
 	[nombre] [nvarchar](50) NOT NULL,
  CONSTRAINT [PK_Autor] PRIMARY KEY CLUSTERED 
 (
@@ -18,7 +18,7 @@ CREATE TABLE [dbo].[Autor](
 ) ON [PRIMARY]
 GO
 
-/****** Object:  Table [dbo].[AutorXLibro]    Script Date: 29/4/2021 18:27:02 ******/
+/****** Object:  Table [dbo].[AutorXLibro]    Script Date: 29/4/2021 18:52:41 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -36,7 +36,7 @@ CREATE TABLE [dbo].[AutorXLibro](
 ) ON [PRIMARY]
 GO
 
-/****** Object:  Table [dbo].[Bibliotecario]    Script Date: 29/4/2021 18:27:02 ******/
+/****** Object:  Table [dbo].[Bibliotecario]    Script Date: 29/4/2021 18:52:41 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -44,7 +44,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[Bibliotecario](
-	[id] [int] IDENTITY(1,1) NOT NULL,
+	[id] [int] NOT NULL,
 	[nombre] [nvarchar](50) NOT NULL,
  CONSTRAINT [PK_Bibliotecario] PRIMARY KEY CLUSTERED 
 (
@@ -53,7 +53,7 @@ CREATE TABLE [dbo].[Bibliotecario](
 ) ON [PRIMARY]
 GO
 
-/****** Object:  Table [dbo].[Libro]    Script Date: 29/4/2021 18:27:02 ******/
+/****** Object:  Table [dbo].[Libro]    Script Date: 29/4/2021 18:52:41 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -61,9 +61,9 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[Libro](
-	[id] [int] IDENTITY(1,1) NOT NULL,
+	[id] [int] NOT NULL,
 	[nombre] [nvarchar](50) NOT NULL,
-	[prestado] [binary](1) NOT NULL,
+	[prestado] [bit] NOT NULL,
  CONSTRAINT [PK_Libro] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -71,7 +71,7 @@ CREATE TABLE [dbo].[Libro](
 ) ON [PRIMARY]
 GO
 
-/****** Object:  Table [dbo].[Prestamo]    Script Date: 29/4/2021 18:27:02 ******/
+/****** Object:  Table [dbo].[Prestamo]    Script Date: 29/4/2021 18:52:41 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -84,7 +84,7 @@ CREATE TABLE [dbo].[Prestamo](
 	[idPrestatario] [int] NOT NULL,
 	[idBibliotecario] [int] NOT NULL,
 	[idTipoPrestatario] [int] NOT NULL,
-	[activo] [binary](1) NOT NULL,
+	[activo] [bit] NOT NULL,
 	[fechaPrestamo] [date] NOT NULL,
 	[fechaVencimiento] [date] NOT NULL,
  CONSTRAINT [PK_Prestamo] PRIMARY KEY CLUSTERED 
@@ -94,7 +94,7 @@ CREATE TABLE [dbo].[Prestamo](
 ) ON [PRIMARY]
 GO
 
-/****** Object:  Table [dbo].[TipoPrestatario]    Script Date: 29/4/2021 18:27:02 ******/
+/****** Object:  Table [dbo].[TipoPrestatario]    Script Date: 29/4/2021 18:52:41 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -102,7 +102,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[TipoPrestatario](
-	[id] [int] IDENTITY(1,1) NOT NULL,
+	[id] [int] NOT NULL,
 	[nombre] [nvarchar](50) NOT NULL,
  CONSTRAINT [PK_TipoPrestatario] PRIMARY KEY CLUSTERED 
 (
