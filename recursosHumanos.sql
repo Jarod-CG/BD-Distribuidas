@@ -1,7 +1,7 @@
 USE [recursosHumanos_SJ_DB]
 GO
 
-/****** Object:  Table [dbo].[Campus]    Script Date: 29/4/2021 18:54:00 ******/
+/****** Object:  Table [dbo].[Campus]    Script Date: 29/4/2021 20:14:27 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -18,7 +18,7 @@ CREATE TABLE [dbo].[Campus](
 ) ON [PRIMARY]
 GO
 
-/****** Object:  Table [dbo].[Escuela]    Script Date: 29/4/2021 18:54:00 ******/
+/****** Object:  Table [dbo].[Escuela]    Script Date: 29/4/2021 20:14:27 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -27,6 +27,7 @@ GO
 
 CREATE TABLE [dbo].[Escuela](
 	[id] [int] NOT NULL,
+	[idCampus] [int] NOT NULL,
 	[nombre] [nvarchar](50) NOT NULL,
  CONSTRAINT [PK_Escuela] PRIMARY KEY CLUSTERED 
 (
@@ -35,7 +36,7 @@ CREATE TABLE [dbo].[Escuela](
 ) ON [PRIMARY]
 GO
 
-/****** Object:  Table [dbo].[Profesor]    Script Date: 29/4/2021 18:54:00 ******/
+/****** Object:  Table [dbo].[Profesor]    Script Date: 29/4/2021 20:14:27 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -44,7 +45,6 @@ GO
 
 CREATE TABLE [dbo].[Profesor](
 	[id] [int] NOT NULL,
-	[idCampus] [int] NOT NULL,
 	[idEscuela] [int] NOT NULL,
 	[nombre] [nvarchar](50) NOT NULL,
 	[apellido] [nvarchar](50) NOT NULL,
@@ -58,11 +58,11 @@ CREATE TABLE [dbo].[Profesor](
 ) ON [PRIMARY]
 GO
 
-ALTER TABLE [dbo].[Profesor]  WITH CHECK ADD  CONSTRAINT [FK_Profesor_Campus] FOREIGN KEY([idCampus])
+ALTER TABLE [dbo].[Escuela]  WITH CHECK ADD  CONSTRAINT [FK_Escuela_Campus] FOREIGN KEY([idCampus])
 REFERENCES [dbo].[Campus] ([id])
 GO
 
-ALTER TABLE [dbo].[Profesor] CHECK CONSTRAINT [FK_Profesor_Campus]
+ALTER TABLE [dbo].[Escuela] CHECK CONSTRAINT [FK_Escuela_Campus]
 GO
 
 ALTER TABLE [dbo].[Profesor]  WITH CHECK ADD  CONSTRAINT [FK_Profesor_Escuela] FOREIGN KEY([idEscuela])
