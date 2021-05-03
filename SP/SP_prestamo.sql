@@ -1,24 +1,19 @@
--- ================================================
--- Template generated from Template Explorer using:
--- Create Procedure (New Menu).SQL
---
--- Use the Specify Values for Template Parameters 
--- command (Ctrl-Shift-M) to fill in the parameter 
--- values below.
---
--- This block of comments will not be included in
--- the definition of the procedure.
--- ================================================
+USE [biblioteca_DB]
+GO
+
+/****** Object:  StoredProcedure [dbo].[SP_prestamo]    Script Date: 3/5/2021 10:54:54 ******/
 SET ANSI_NULLS ON
 GO
+
 SET QUOTED_IDENTIFIER ON
 GO
+
 -- =============================================
 -- Author:		Name
 -- Create date: 
 -- Description:	realiza el prestamo
 -- =============================================
-CREATE PROCEDURE SP_prestamo 
+CREATE PROCEDURE [dbo].[SP_prestamo] 
 	-- Add the parameters for the stored procedure here
 	@inIdLibro INT,
 	@inIdPrestatario INT,--consultar tipo
@@ -84,6 +79,11 @@ BEGIN
 		IF (@puede = 1)
 		BEGIN
 			BEGIN TRANSACTION
+
+				UPDATE dbo.Libro
+				SET prestado = 0
+				WHERE id = @inIdLibro; 
+
 				INSERT INTO dbo.Prestamo(
 					idLibro,
 					idPrestatario,
@@ -101,7 +101,9 @@ BEGIN
 					1,
 					GETDATE(),
 					DATEADD(MONTH, 1, GETDATE())--un mes
-				)
+				);
+
+				
 
 
 			COMMIT TRANSACTION
@@ -114,8 +116,10 @@ BEGIN
 			
 	END TRY
 	BEGIN CATCH
-
+		PRINT 'ERROR : prestamo'
 	END CATCH
 	SET NOCOUNT OFF;
 END
 GO
+
+
